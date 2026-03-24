@@ -1,0 +1,21 @@
+services:
+  - type: worker
+    name: telegram-dm-bot
+    runtime: python
+    repo: https://github.com/yourusername/telegram-dm-bot
+    branch: main
+    buildCommand: pip install -r requirements.txt
+    startCommand: python main.py
+    envVars:
+      - key: API_ID
+        sync: false
+      - key: API_HASH
+        sync: false
+      - key: SESSION_STRING
+        sync: false
+      - key: DELAY_BETWEEN_MESSAGES
+        value: 5
+      - key: MAX_MESSAGES_PER_HOUR
+        value: 60
+      - key: CONFIRM_BEFORE_SEND
+        value: false
