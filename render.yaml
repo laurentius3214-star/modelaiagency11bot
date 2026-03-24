@@ -5,17 +5,19 @@ services:
     repo: https://github.com/yourusername/telegram-dm-bot
     branch: main
     buildCommand: pip install -r requirements.txt
-    startCommand: python main.py
+    startCommand: python bot.py
     envVars:
+      - key: BOT_TOKEN
+        sync: false
       - key: API_ID
         sync: false
       - key: API_HASH
         sync: false
+      - key: PHONE_NUMBER
+        sync: false
       - key: SESSION_STRING
         sync: false
-      - key: DELAY_BETWEEN_MESSAGES
-        value: 5
-      - key: MAX_MESSAGES_PER_HOUR
-        value: 60
-      - key: CONFIRM_BEFORE_SEND
-        value: false
+      - key: MAX_RECIPIENTS
+        value: 50
+      - key: DEFAULT_DELAY
+        value: 3
